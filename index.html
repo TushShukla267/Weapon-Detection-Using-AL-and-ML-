@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Weapon Detection Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h4 class="text-center text-light">Weapon AI</h4>
+    <a href="#" id="nav-dashboard" class="active">Dashboard</a>
+    <a href="#" id="nav-history">Detection History</a>
+    <a href="#" id="nav-analytics">Analytics</a>
+    <a href="#" id="nav-settings">Settings</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-panel">
+    <!-- Dashboard Section -->
+    <section id="section-dashboard">
+      <h2>Live Feed & Alerts</h2>
+      <div class="video-container mt-3">
+        <img id="videoFeed" src="http://127.0.0.1:5000/video_feed" alt="Live Feed" />
+        <canvas id="overlayCanvas"></canvas>
+      </div>
+      <p class="mt-2 text-success" id="feedStatus">✅ Live feed connected</p>
+      <h5 class="mt-4">Recent Alerts</h5>
+      <ul class="list-group" id="alertsList"></ul>
+    </section>
+
+    <!-- History Section -->
+    <section id="section-history" style="display: none;">
+      <h3>Weapon Detection History</h3>
+      <div class="row my-3">
+        <div class="col-md-4">
+          <input type="text" id="filterWeapon" class="form-control" placeholder="Filter by Weapon">
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="filterLocation" class="form-control" placeholder="Filter by Location">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-secondary w-100" id="resetFilters">Reset Filters</button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="historyTable">
+          <thead class="table-dark">
+            <tr><th>Timestamp</th><th>Weapon</th><th>Location</th></tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="section-analytics" style="display: none;">
+      <h3>Detection Analytics</h3>
+      <div class="text-center my-3">
+        <button class="btn btn-outline-primary me-2" id="btnBar">Bar Chart</button>
+        <button class="btn btn-outline-secondary" id="btnLine">Line Chart</button>
+      </div>
+      <div class="card p-3 shadow">
+        <canvas id="detectionChart" height="100"></canvas>
+      </div>
+    </section>
+
+    <!-- Settings Section (placeholder) -->
+    <section id="section-settings" style="display: none;">
+      <h3>Settings</h3>
+      <p>Configuration options will go here.</p>
+    </section>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript Logic -->
+  <script src="dashboard.js"></script>
+  <script src="alerts.js"></script>
+  <script src="settings.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,143 @@
+body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    background-color: #343a40;
+    padding-top: 1rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar a {
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .sidebar a.active,
+  .sidebar a:hover {
+    background-color: #495057;
+  }
+  
+  .main-panel {
+    margin-left: 220px;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+  
+  .video-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+  
+  #videoFeed {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  #overlayCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  /* --- Mobile/Tablet Responsiveness --- */
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 60px;
+      padding-top: 0.5rem;
+    }
+  
+    .sidebar h4 {
+      font-size: 1rem;
+      display: none;
+    }
+  
+    .sidebar a {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+  
+    .main-panel {
+      margin-left: 60px;
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      background-color: #343a40;
+    }
+  
+    .sidebar a {
+      flex: 1;
+      padding: 10px 5px;
+      font-size: 0.85rem;
+    }
+  
+    .main-panel {
+      margin-left: 0;
+      margin-top: 70px;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+  
+    .video-container {
+      width: 100%;
+    }
+  
+    #overlayCanvas {
+      width: 100%;
+      height: auto;
+    }
+  
+    h2, h3, h5 {
+      font-size: 1.2rem;
+    }
+  
+    #filterWeapon, #filterLocation {
+      margin-bottom: 10px;
+    }
+  
+    .row.my-3 {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar a {
+      font-size: 0.75rem;
+      padding: 8px 2px;
+    }
+  
+    .main-panel {
+      padding: 10px;
+    }
+  
+    .card.p-3.shadow {
+      padding: 10px;
+    }
+  }
+  
